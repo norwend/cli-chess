@@ -1,6 +1,6 @@
-#include <array>
 #include <iostream>
 #include <array>
+#include <string>
 
 class Figures {
 protected:
@@ -34,8 +34,23 @@ int main() {
 	{1, 1, 1, 1, 1, 1, 1, 1},
 	{4, 3, 2, 5, 6, 2, 3, 4}
 	}};
-	for (int i = 0; i < board.size(); ++i) {
-		
+	for (auto& row : board) {
+		for (int& column : row) {
+			switch (column) {
+				case 0:
+					std::cout << "# ";
+					break;
+				case 1:
+					std::cout << "♙ ";
+					break;
+				case -1:
+					std::cout << "♟︎ ";
+					break;
+				default:
+					break;
+			}
+		}
+		std::cout << std::endl;
 	}
 	return 0;
 }

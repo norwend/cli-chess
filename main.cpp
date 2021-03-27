@@ -16,9 +16,9 @@ private:
 	bool first_move = true;
 public:
 	virtual void move (int pos1_n, int pos2_n) override {
-		if (pos1 == pos1_n && pos1_n - pos2_n <= 2 && first_move == true)
+		if (pos1 == pos1_n && pos1_n - pos2_n <= 2 && first_move)
 			pos2 = pos2_n;
-		if (pos1 == pos1_n && pos1_n - pos2_n <= 1 && first_move != true)
+		if (pos1 == pos1_n && pos1_n - pos2_n <= 1 && !first_move)
 			pos2 = pos2_n;
 	}
 };

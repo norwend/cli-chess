@@ -18,7 +18,7 @@ int main() {
 		std::cin >> p1 >> p2 >> p3 >> p4;
 		main_board.move_figure(p1, p2, p3, p4);
 		main_board.print();
-		p1,p2,p3,p4 = 0;
+		p1 = 0; p2 = 0; p3 = 0; p4 = 0;
 	}
 	return 0;
 }

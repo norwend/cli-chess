@@ -10,15 +10,28 @@ private:
 	std::array<std::array<int,8>, 8> board_;
 };
 
-void Board::move_figure(const int& pos1, const int& pos2, const int& pos1_n, const int& pos2_n) {
+void Board::move_figure(const int& pos1, const int& pos2, const int& pos1_n, const int& pos2_n) { // уебок блядский
 	switch (board_[pos1][pos2]) {
 		case 1:
-			std::cout << pos1 << pos2 << pos1_n << pos2_n;
-		if (pos2 == pos2_n && pos1_n - pos1 <= 2 && pos1 == 6) {
-			board_[pos1][pos2] = 0;
-			board_[pos1_n][pos2_n] = 1;
-		}
-		break;
+			if (pos2 == pos2_n && abs(pos1_n - pos1) <= 2 && pos1 == 6) {
+				board_[pos1][pos2] = 0;
+				board_[pos1_n][pos2_n] = 1;
+			}
+			if (pos2 == pos2_n && abs(pos1_n - pos1) == 1) {
+				board_[pos1][pos2] = 0;
+				board_[pos1_n][pos2_n] = 1;
+			}
+			break;
+		case -1:
+			if (pos2 == pos2_n && abs(pos1_n - pos1) <= 2 && pos1 == 1) {
+				board_[pos1][pos2] = 0;
+				board_[pos1_n][pos2_n] = -1;
+			}
+			if (pos2 == pos2_n && abs(pos1_n - pos1) == 1) {
+				board_[pos1][pos2] = 0;
+				board_[pos1_n][pos2_n] = -1;
+			}
+			break;
 	}
 }
 
